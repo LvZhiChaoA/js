@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 400px;
+            height: 300px;
+            border: #000 1px solid;
+            margin: 100px auto;
+        }
+
+        #box a {
+            display: block;
+            float:left;
+            width: 100px;
+            height: 39px;
+            text-align:center;
+            line-height: 39px;
+            background:#ccc;
+            color: #333;
+            text-decoration:none;
+            border-bottom: #333 1px solid;
+        }
+
+        #box a.active{
+            background: #c00;
+            color: #fff;
+            width: 98px;
+            border-left: #333 1px solid;
+            border-right: #333 1px solid;
+        }
+
+        #box div{
+            width: 400px;
+            height: 260px;
+            text-align:center;
+            line-height:260px;
+            font-size:50px;
+            display:none;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="box">
+    <a href="javascript:;" class="active">体育</a>
+    <a href="javascript:;">音乐</a>
+    <a href="javascript:;">视频</a>
+    <a href="javascript:;">电影</a>
+    <div style="display: block;">体育</div>
+    <div>音乐</div>
+    <div>视频</div>
+    <div>电影</div>
+</div>
+
+
+</body>
+</html>
+<script src="js/cookie.js"></script>
+<script>
+
+//创建cookie,保存到浏览器
+function setCookie(name,value,expires,path,domain,secure) {
+    //用一个变量保存设置的键值对,并且进行编码
+    var cookieText = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+    //设置过期时间
+    if(expires instanceof Date){
+        cookieText += ";expires=" + expires;
+    }
+    //设置访问的路径
+    if(path){
+        cookieText += ";path=" + path;
+    }
+    //设置访问的域名
+    if(domain){
+        cookieText += ";domain=" + domain;
+    }
+    //设置访问的协议
+    if(secure){
+        cookieText += ";secure"
+    }
+    //写入cookie
+    document.cookie = cookieText;
+}
+
+//获取cookie
+function getCookie(name) {
+    //userName=
+    var cookieName = encodeURIComponent(name) + '=';
+    //返回属性名的索引
+    var cookieStart = document.cookie.indexOf(cookieName);
+    //创建一个变量,用来保存cookie的值
+    var cookieValue = null;
+    //根据属性名查找cookie,如果大于0,那么这条cookie则存在,如果小于,则表示不存在
+    if(cookieStart >= 0){
+        var cookieEnd = document.cookie.indexOf(';', cookieStart);
+        if(cookieEnd == -1){
+            cookieEnd = document.cookie.length;
+        }
+        cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
+    }
+    return cookieValue;
+}
+
+//设置过期时间
+function setCookieDate(day){
+    if(typeof day == "number" && day > 0){
+        var date = new Date();
+        date.setDate(date.getDate() + day);
+    }else{
+        throw new Error('传递的day必须是一个天数，必须比0大');
+    }
+    return date;
+}
+
+//删除cookie
+function deleteCookie(name) {
+    document.cookie = name + "= ; expires=" + new Date(0);
+}
+deleteCookie("name")
+
+    //获取元素
+    var oBox = document.getElementById("box");
+    var aA = oBox.getElementsByTagName("a");
+    var aDiv = oBox.getElementsByTagName("div");
+    var currentIndex = 0;
+    function tab(index) {
+        for(var i=0;i<aA.length;i++){
+            aA[i].className = "";
+            aDiv[i].style.display = "none";
+        }
+        aA[index].className = "active";
+        aDiv[index].style.display = "block";
+    }
+
+    for(var i=0;i<aA.length;i++){
+        aA[i].index = i;
+        aA[i].onclick = function () {
+            tab(this.index);
+            setCookie("tabIndex",this.index,setCookieDate(7));
+        }
+    };
+
+    currentIndex = getCookie("tabIndex");
+//  alert(currentIndex);
+    if(currentIndex){
+      tab(currentIndex)
+    }
+
+</script>

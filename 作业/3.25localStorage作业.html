@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div,p,ul,li{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				/*background: url(../练习/img/demo3.jpg);*/
+				z-index: 1;
+			}
+			#odiv{
+				width: 800px;
+				overflow: hidden;
+				background: darkgray;
+				margin: 0 auto;
+			}
+			#odiv .odd{
+				width: 150px;
+				float: right;
+			}
+			#odiv p{
+				line-height: 50px;
+				text-align: center;
+				font-size: 25px;
+				color: black;
+				cursor: pointer;
+				background: url(img/ico.gif) no-repeat 130px 22px;
+				background-size: 10%;
+			}
+			#odiv .ull{
+				width: 150px;
+				position: absolute;
+				top: 0;left: 0;right: 0;
+				margin: 57px 0 0 1210px;
+				background: palegreen;
+				text-align: center;
+				font-size: 25px;
+				color: hotpink;
+				cursor: pointer;
+				display: none;
+				z-index: 999;
+			}
+			#odiv .ull li:hover{
+				background: hotpink;
+				color:palegreen;
+			}
+			#odiv .ull  li{
+				padding: 10px;
+				cursor: pointer;
+				list-style-type: none;
+				text-align: center;
+				line-height: 35px;
+				color: hotpink;
+				font-size: 20px;
+			}
+			.fabiao{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;left: 0;
+				display: none;
+				z-index: 998;
+			}
+			.fabiao .header{
+				width: 500px;
+				line-height: 50px;
+				text-align: center;
+				border: 1px solid #CCCCCC;
+				background: #ccc;
+				margin: 100px auto;
+				margin-bottom: 0;
+				font-size: 18px;
+				cursor: pointer;
+				border-bottom: 1px solid #666;
+			}
+			.fabiao .header img{
+				width: 3%;
+				float: left;
+				margin-top: -6%;
+				margin-left: 95%;
+			}
+			.fabiao .body{
+				width: 500px;
+				background: white;
+				margin: 0 auto;
+				border: 1px solid #ccc;
+			}
+			.fabiao .body .toubu{
+				width: 100%;
+				text-align: center;
+			}
+			.fabiao .body .toubu p{
+				line-height: 15px;
+				margin-top: 10px;
+				color: red;
+				visibility: hidden;
+			}
+			.fabiao .body .biaoti{
+				width: 100%;
+				line-height: 50px;
+				padding-left: 5%;
+			}
+			.fabiao .body .biaoti p{
+				display: inline-block;
+			}
+			.fabiao .body .biaoti input{
+				display: inline-block;
+				padding: 6px 3px;
+			}
+			.fabiao .body .biaoti1 p{
+				float: left;
+				margin-top: 10px;
+			}
+			.fabiao .body .biaoti1 textarea{
+				display: inline-block;
+				margin-left: 6px;
+				padding: 10px;
+				margin-right: 2px;
+			}
+			.fabiao .body .biaoti1 span{
+				/*position: absolute;*/
+				/*top: 24%;*/
+			}
+			#btn{
+				width: 100px;
+				line-height: 25px;
+				outline: none;
+				background: greenyellow;
+				border-radius: 5px;
+				cursor: pointer;
+				margin: 0 0 30px 99px;
+			}
+			#testA{
+				width: 700px;
+				/*overflow: hidden;*/
+				height: 480px;
+				border: 1px solid #CCCCCC;
+				position: absolute;
+				top: 0;left: 0;right: 0;
+				margin: 140px auto;
+				display: none;
+				z-index: 1;
+				overflow-y: auto;
+				overflow-x:hidden;
+			}
+			#testA .oo{
+				width: 94%;
+				margin: 10px auto 0;
+				border: 1px solid #ccc;
+				border-bottom: 1px solid #666666;
+				background: #CCCCCC;
+			}
+			#testA .oo span{
+				line-height: 30px;
+				padding-left: 10px;
+				font-weight: 800;
+				font-size: 18px;
+			}
+			#testA .oo span.sj{
+				font-size: 16px;
+				font-weight: normal;
+				float: right;
+				padding-right: 15px;
+			}
+			#testA .oo .del{
+				float: right;
+				padding: 5px;
+				padding-right: 15px;
+				cursor: pointer;
+			}
+			#testA .wenzi{
+				width: 90%;
+				overflow: hidden;
+				height: 150px;
+				border: 1px solid #ccc;
+				margin: 0 auto;
+				margin-bottom: 20px;
+				padding: 2%;
+				text-indent: 2em;
+				word-wrap: break-word;
+				background: #eee;
+			}
+			.tupian{
+				width: 700px;
+				background: cyan;
+				position: absolute;
+				top: 0;left: 0;right: 0;
+				border: 1px solid #eee;
+				margin: 100px auto;
+				display: none;
+			}
+			.tupian img{
+				width: 30.5%;
+				margin: 2% 1%;
+				cursor: pointer;
+			}
+			.tupian .oimg{
+				width: 3%;
+				position: absolute;
+				top: 0;left: 0;right: 0;
+				margin: 1% 0 0 97%;
+			}
+			.tupian p{
+				position: absolute;
+				top: 0;left: 0;right: 0;
+				width: 130px;
+				height: 50px;
+				background: #98FB98;
+				text-align: center;
+				line-height: 50px;
+				font-size: 20px;
+				margin:  18% auto;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="odiv">
+			<div class="odd">
+				<p>个人中心</p>
+				<ul class="ull">
+					<li onclick="fabu()">发布</li>
+					<li onclick="huanfu()">换肤</li>
+					<li>帮助</li>
+					<li>退出</li>
+				</ul>
+			</div>
+		</div>
+		<div class="tupian">
+			<img class="oimg" src="../cha.jpg"/>
+			<img src="../练习/img/demo1.jpg"/>
+			<img src="../练习/img/demo2.jpg"/>
+			<img src="../练习/img/demo3.jpg"/>
+			<img src="../练习/img/demo1.jpg"/>
+			<img src="../练习/img/demo2.jpg"/>
+			<img src="../练习/img/demo3.jpg"/>
+			<p id="ghtp">更换成功</p>
+		</div>
+		<div class="fabiao">
+			<div class="header"><p>发表博文</p>
+				<img id="oimg" src="img/cha.jpg"/>
+			</div>
+			<div class="body">
+				<div class="toubu">
+					<p id="pp">标题不能为空</p>
+				</div>
+				<div class="biaoti">
+					<p>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题&nbsp;:</p>
+					<input id="ipt" type="text" />
+					<span>(*不可为空)</span>
+				</div>
+				<div class="biaoti biaoti1">
+					<p>内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容&nbsp;:</p>
+					<textarea id="texta" rows="4" cols="0"></textarea>
+					<span>(*不可为空)</span>
+				</div>
+				<button id="btn">发表</button>
+			</div>
+		</div>
+		<div id="testA"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	var op = document.getElementsByTagName("p")[0];
+	var oul = document.getElementsByClassName("ull")[0];
+	var odd = document.getElementsByClassName("odd")[0];
+	var ofabiao = document.getElementsByClassName("fabiao")[0];
+	var oimg = document.getElementById('oimg');
+	var obtn = document.getElementById("btn");
+	var oipt = document.getElementById("ipt");
+	var otexta = document.getElementById('texta');
+	var opp =document.getElementById("pp");
+	var otestA = document.getElementById("testA");
+	odd.onmouseover=function(){
+		op.style.background="url(img/ico.gif) no-repeat 130px -29px";
+		op.style.backgroundSize="10%";
+		oul.style.display="block";
+	}
+	odd.onmouseout=function(){
+		op.style.background="url(img/ico.gif) no-repeat 130px 22px";
+		op.style.backgroundSize="10%";
+		oul.style.display="none";
+	}
+	function fabu(){
+		op.style.background="url(img/ico.gif) no-repeat 130px 22px";
+		op.style.backgroundSize="10%";
+		oul.style.display="none";
+		ofabiao.style.display="block";
+	}
+	oimg.onclick=function(){
+		ofabiao.style.display="none";
+	}
+	obtn.onclick=function(){
+		var ovalue = oipt.value;
+		var avalue = otexta.value;
+		if( /^\s*$/.test(ovalue) && /^\s*$/.test(avalue) ){
+			opp.innerHTML = "标题和内容不能为空";
+			opp.style.visibility="visible";
+		}else if(/^\s*$/.test(ovalue)){
+			opp.innerHTML = "标题不能为空";
+			opp.style.visibility="visible";
+		}else if(/^\s*$/.test(avalue)){
+			opp.innerHTML = "内容不能为空";
+			opp.style.visibility="visible";
+		}else{
+			//创建一个日期对象
+			var date = new Date();
+			//获取当前的年份
+			var year = date.getFullYear();
+			//获取当前的月份
+			var month = date.getMonth();
+			//获取当前的日份
+			var data = date.getDate();
+			//获取小时
+			var hours = date.getHours();
+			//获取分钟
+			var minutes = date.getMinutes();
+			//获取秒数
+			var seconds = date.getSeconds();
+			var obody = document.createElement("div");
+			var obj = {};
+			var objects = {
+				objs : [],
+			};
+			obj.title=oipt.value;
+			obj.sj=bl(year) +"-" + bl((month+1)) +"-"+ bl(data) +" " + bl(hours) +":" + bl(minutes) +":" + bl(seconds);
+			obj.hej=otexta.value;
+			objects.objs.unshift(obj);
+//			console.log(objects.objs[1].title);
+			for(var i=0;i<objects.objs.length;i++){
+				var obody = document.createElement("div");
+				obody.innerHTML = "<div class='oo''>" +"<span>" + objects.objs[i].title + "</span>"
+				+ "<span class='sj'>" + objects.objs[i].sj  +"</span>"
+				+ "</div>" + "<div class='wenzi'>"+ objects.objs[i].hej +"</div>";
+				otestA.insertBefore(obody,otestA.children[0]);
+			}
+//			obody.innerHTML = "<div class='oo''>" +"<span>" + oipt.value + "</span>"
+//			+ "<span class='sj'>" + bl(year) +"-" + bl((month+1)) +"-"
+//			+ bl(data) +" " + bl(hours) +":" + bl(minutes) +":" + bl(seconds) +"</span>"
+//			+ "</div>" + "<div class='wenzi'>"+otexta.value+"</div>";
+//			otestA.insertBefore(obody,otestA.children[0]);
+//			otestA.appendChild(obody);
+			ofabiao.style.display="none";
+			otestA.style.display="block";
+			oipt.value="";otexta.value="";
+		}
+	}
+	//补零函数
+	function bl(n){
+		if(n < 10){
+			return "0"+n;
+		}else{
+			return ""+n;
+		}
+	}
+	setInterval(function(){
+		opp.style.visibility="hidden";
+	},2500);
+	
+	var otupian = document.getElementsByClassName("tupian")[0]; 
+	var tpimg = otupian.getElementsByTagName("img");
+	var ghtp = document.getElementById('ghtp');
+	var obody = document.getElementsByTagName("body")[0];
+	obody.style.background="url(../练习/img/demo3.jpg)";
+	var aindex = "../练习/img/demo3.jpg";
+	function aaa(src){
+		ghtp.style.display="block";
+		obody.style.background="url("+src+")";
+	}
+	for(var i=1;i<tpimg.length;i++){
+		
+		tpimg[i].onclick=function(){
+		aaa(this.src);
+//  	localStorage.setItem("maxName1","jack1");
+		localStorage.setItem("background",this.src);
+		}
+	}
+	var ooimg = document.getElementsByClassName("oimg")[0];
+	function huanfu(){
+		otupian.style.display="block";
+		otupian.style.zIndex=999;
+		oul.style.display="none";
+	}
+	ooimg.onclick=function(){
+		otupian.style.display="none";
+	}
+	setInterval(function(){
+		ghtp.style.display="none";
+	},2000);
+//	console.log(getCookie("background"));
+	aindex = localStorage.getItem("background");
+//	alert(aindex)
+	if(aindex){
+		obody.style.background="url("+aindex+")";
+	}
+</script>;
