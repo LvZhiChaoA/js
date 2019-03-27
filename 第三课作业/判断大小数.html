@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<input type="text" />
+		<input type="button" value="点击判断" />
+	</body>
+</html>
+<script type="text/javascript">
+	var oinput = document.getElementsByTagName("input");
+	oinput[2].onclick=function(){
+		(oinput[0].value == "" || oinput[1].value == "") ?
+		alert("请输入数字！") :
+		(alert(Math.max(oinput[0].value, oinput[1].value)+"最大")) ;
+
+	}
+	oinput[0].onkeyup = oinput[1].onkeyup = function ()
+		{
+			this.value = this.value.replace(/[^\d]/,"")
+		}	
+</script>

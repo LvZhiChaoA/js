@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			label{
+				cursor: pointer;
+			}
+			p{
+				width: 250px;
+				overflow: hidden;
+				margin: 0;
+				border: 1px solid goldenrod;
+				background: cyan;
+				cursor: pointer;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<label id="lab"><input type="checkbox" />记住密码</label>
+		<p>为了您的信息安全，请不要在网吧或公用电脑上使用此功能！</p>
+	</body>
+</html>
+<script type="text/javascript">
+	//获取元素
+	var olab = document.getElementById("lab");
+	var op = document.getElementsByTagName("p")[0];
+	//olab和op的鼠标进入事件
+	olab.onmousemove = op.onmousemove =function(){
+		//op的样式显示
+		op.style.display="block";
+	}
+	//设置olab和op的鼠标离开事件
+	olab.onmouseout = op.onmouseout = function(){
+		//op的样式为none
+		op.style.display="none";
+	}
+	
+	
+</script>

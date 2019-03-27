@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="0" />
+	</body>
+</html>
+<script type="text/javascript">
+	var oinput = document.getElementsByTagName("input")[0];
+	var a = 0;
+	oinput.onclick=function(){
+		a++;
+		oinput.value=a;
+		alert(a);
+	}
+</script>
