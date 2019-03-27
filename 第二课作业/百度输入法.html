@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		body,ul,li,button{
+			margin:0;
+			padding:0;
+			list-style-type:none;
+		}
+		button{
+			cursor:pointer;
+		}
+		#outer{
+			width:70px;
+			margin:10px auto;
+		}
+		#ime{
+			margin-top:5px;
+			background:#fff;
+			border:1px solid #9a99ff;
+			display:none;
+		}
+		#ime li{
+			width:100%;
+			line-height:24px;
+			display:inline-block;
+			vertical-align:top;
+		}
+		#close{
+			border-top:1px solid #9a99ff;
+		}
+		#ime li a{
+			padding:0 5px;
+			display:block;
+			text-decoration:none;
+		}
+		#ime li a:hover{
+			background:#d9e1f6;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="outer">
+		    <button>输入法</button>
+		    <ul id="ime">
+		        <li><a href="javascript:;">手写</a></li>
+		        <li><a href="javascript:;">拼音</a></li>
+		        <li id="close"><a href="javascript:;">关闭</a></li>
+		    </ul>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	
+	//获取元素
+	var obtn = document.getElementsByTagName("button")[0];
+	var oime = document.getElementById("ime");
+	var close = document.getElementById("close");
+	//定义一个变量为true
+	var tem = true;
+	//obtn和close的点击
+	obtn.onclick = close.onclick =function(){
+		//如果为true
+		if(tem){
+			//显示
+			oime.style.display = "block"; 
+			//重新赋值为false
+			tem = false;
+		}else{
+			//隐藏
+			oime.style.display = "none"; 
+			//重新赋值为true
+			tem = true;
+		}
+	}
+	
+</script>

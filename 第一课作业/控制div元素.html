@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#outer{
+				width:500px;
+				margin:0 auto;
+				padding:0;
+				text-align:center;
+			}
+			#div1{
+				width:100px;
+				height:100px;
+				background:black;
+				margin:10px auto;
+				display:block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="outer">
+			<input type="button" value="变宽">
+			<input type="button" value="变高">
+			<input type="button" value="变色">
+			<input type="button" value="隐藏">
+			<input type="button" value="重置">
+			<div id="div1"></div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	//获取元素
+	var oinput = document.getElementsByTagName("input");
+	var odiv = document.getElementById("div1");
+	//初始两个变量定义为 odiv的宽度和高度;
+	var ow = odiv.offsetWidth , oh = odiv.offsetHeight;
+	//第一个按钮的点击
+	oinput[0].onclick=function(){
+		//给它的宽度每次点击都加它初始的宽度
+		ow+=odiv.offsetWidth;
+		//改变odiv样式的宽度
+		odiv.style.width = ow+"px";
+	}
+	//第二个按钮的点击
+	oinput[1].onclick=function(){
+		//给它的高度每次点击都加它初始的高度
+		oh+=odiv.offsetHeight;
+		//改变odiv样式的高度
+		odiv.style.height = oh+"px";
+	}
+	//封装一个随机产生数字的方法
+	function random(){
+		return parseInt(Math.random()* 255);
+	}
+	//第三个按钮的点击
+	oinput[2].onclick=function(){
+		//定义变量，设置随机数
+		var oa = random(),ob = random() , oc = random();
+		//改变odiv样式的背景色
+		odiv.style.background = "rgb("+oa+","+ob+","+oc+")";
+	}
+	//第四个按钮的点击
+	oinput[3].onclick=function(){
+		//给odiv的样式清除为none
+		odiv.style.display="none";
+	}
+	//第五个按钮的点击
+	oinput[4].onclick=function(){
+		//给odiv的样式显示出来
+		odiv.style.display="block";
+		//设置odiv的宽度以及高度为100px；
+		odiv.style.width=odiv.style.height="100px";
+		//设置odiv的背景色为黑色；
+		odiv.style.background="black";
+	}
+</script>
+

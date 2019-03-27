@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" value="北京" />
+		<br />
+		<input type="text" value="昌平" />
+		<br />
+		<button>传参</button>
+	</body>
+</html>
+<script type="text/javascript">
+	//textA是获取第一个input元素
+	var textA = document.getElementsByTagName("input")[0];
+	//textB是获取第二个input元素
+	var textB = document.getElementsByTagName("input")[1];
+	//obtn是获取第一个button元素
+	var obtn = document.getElementsByTagName("button")[0];
+	//给obtn添加点击事件
+	obtn.onclick=function(){
+		//调用函数getValue(),弹出textA的值和textB的值
+		alert(getValue(textA,textB));
+	}
+	//封装一个函数
+	function getValue(a,b){
+		return a.value + "\n" + b.value;
+	}
+	
+</script>
