@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	
+//	方法一：URL传参（？后面的参数）（去哪儿网笔试题，把URL后面的参数解析为对象）
+//  window.location.href = "https://www.google.com/search?q=hello&oq=hello"
+
+	
+//	window.location.href = "https://www.google.com/search?q=hello&oq=hello";
+	
+	function Objs(){
+		var urls = "https://www.google.com/search?q=hello&oq=hello";
+//		var obj = new Object();
+//		if(urls.indexOf("?") != -1 ){
+//			var str = urls.substr(1);
+//			var strs = str.split("&");
+//			for(var i=0;i<strs.length;i++){
+//				obj[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+//			}
+//			return obj;
+//		}
+		var str = urls.split("?")[1];
+		var ss = str.split("&");
+		var arr = [];
+		var obj = {};
+		for(var i=0;i<ss.length;i++){
+			arr = ss[i].split("=");
+			obj[arr[0]] = arr[1];
+		}
+		return obj;
+		
+	}
+	console.log(Objs());
+	
+</script>

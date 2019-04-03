@@ -1,0 +1,17 @@
+body,div,ul,li,span,p,h1,h2,h3,h4,ol,dl,dt,dd,img,a,ul li{ padding:0; margin:0; list-style: none; border:0;}
+dl,dt,dd{margin: 0; padding: 0;}
+body{ font-size:12px; color:#3e3e3e; font-family:"����";}
+a{ text-decoration:none; color:#003399;}
+a:hover{ color:#c00; text-decoration:underline;}
+/*清除浮动*/
+.clearfix:after{
+  content: '';
+  height: 0;
+  visibility: hidden;
+  clear: both;
+  display:block;
+}
+/*触发ie低版本浏览器渲染模式*/
+.clearfix{
+  zoom : 1;
+}

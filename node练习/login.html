@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>注册</h3>
+    账号:<input id="user" type="text" >
+    <br><br>
+    密码:<input id="pass" type="password" >
+    <br><br>
+    <button id="btn">点击注册</button>
+</body>
+</html>
+<script src="./js/ajax.js"></script>
+<script>
+    var btn = document.getElementById("btn");
+    var user = document.getElementById("user");
+    var pass = document.getElementById("pass");
+    
+    btn.onclick=function(){
+	    ajax({
+	    	url : "http://localhost:8020/",
+	    	method : "post",
+	    	data:{
+	    		user : user.value,
+	    		pass : pass.value
+	    	},
+	    	success : function(response){
+	    		console.log(response)
+				location.href="登录.html";
+	    	},
+	    	async:true
+	    })
+    }
+</script>

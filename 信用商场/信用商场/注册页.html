@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册页</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/zhuce.css"/>
+ 	</head>
+	<body>
+		<!--header-->
+		<div class="header">
+			<h1>信用商场</h1>
+			<h2>欢迎登陆</h2>
+			<div class="header_right">
+				<ul>
+					<li>已有账号？</li>
+					<li><a href="#">请登录</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--content-->
+		<div class="content">
+			<div class="content_from">
+				<div class="form_top">
+					 <h3>个人用户注册</h3>
+				<h4>企业用户注册</h4>
+				</div>
+				<div class="conten_logo">
+					验证手机号
+				</div>
+				<div class="form">
+					<input class="form_in" type="text" name="" placeholder="请输入手机号码"  id="shouji" value="" />
+					<input class="form_in2" type="" placeholder="请输入手机验证码" name="" id="" value="" />
+					<input class="form_in3" type="button" name="" id="ynaz" value="发送验证码" />
+					<input class="form_in4" type="button" name="" id="xiayibu" value="下一步" />
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footer">
+			<div class="footer_bottom">
+				<img src="../img/images/扶贫商城_03.png">
+				<ul>
+					<li class="bottomLi"><a href="#"> 售后保障</a></li>
+					<li class="bottom_li"><a href="#"> 退换货流程</a></li>
+					<li><a href="#">售后服务承诺及政策</a></li>
+				</ul>
+				<ul>
+					<li class="bottomLi"><a href="#"> 关于我们</a></li>
+					<li class="bottom_li"><a href="#"> 公司信息</a></li>
+					<li><a href="#">联系我们</a></li>
+				</ul>
+				<dl>
+					<dt>扶贫认证</dt>
+					<dd>二维码</dd>
+				</dl>
+				<span><img src="../img/images/index17_44.png"/></span>
+				<p>版权所有：上海市社会信用促进中心 2017 沪 ICP 备：17053360 号</p>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	
+	
+	function setCookie(name,value,expires,path,domain,secure) {
+    //用一个变量保存设置的键值对,并且进行编码
+    var cookieText = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+    //设置过期时间
+    if(expires instanceof Date){
+        cookieText += ";expires=" + expires;
+    }
+    //设置访问的路径
+    if(path){
+        cookieText += ";path=" + path;
+    }
+    //设置访问的域名
+    if(domain){
+        cookieText += ";domain=" + domain;
+    }
+    //设置访问的协议
+    if(secure){
+        cookieText += ";secure"
+    }
+    //写入cookie
+    document.cookie = cookieText;
+}
+//获取cookie
+function getCookie(name) {
+    //userName=
+    var cookieName = encodeURIComponent(name) + '=';
+    //返回属性名的索引
+    var cookieStart = document.cookie.indexOf(cookieName);
+    //创建一个变量,用来保存cookie的值
+    var cookieValue = null;
+    //根据属性名查找cookie,如果大于0,那么这条cookie则存在,如果小于,则表示不存在
+    if(cookieStart >= 0){
+        var cookieEnd = document.cookie.indexOf(';', cookieStart);
+        if(cookieEnd == -1){
+            cookieEnd = document.cookie.length;
+        }
+        cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
+    }
+    return cookieValue;
+}
+//设置过期时间
+function setCookieDate(day){
+    if(typeof day == "number" && day > 0){
+        var date = new Date();
+        date.setDate(date.getDate() + day);
+    }else{
+        throw new Error('传递的day必须是一个天数，必须比0大');
+    }
+    return date;
+}
+//删除cookie
+function deleteCookie(name) {
+    document.cookie = name + "= ; expires=" + new Date(0);
+}	
+	var ynaz = document.getElementById("ynaz");
+	var rodm = parseInt(Math.random() * 1000000);
+//	console.log(rodm);
+	var shouji = document.getElementById("shouji");
+	var reg = /^1\d{10}$/;
+	var str = /^\s*$/;
+	var xiayibu = document.getElementById("xiayibu");
+	xiayibu.onclick=function(){
+		if(reg.test(shouji.value)){
+			window.location.href="注册页2.html";
+			console.log(getCookie("name"));
+			setCookie("shouji",shouji.value,setCookieDate(10));
+		}else if(str.test(shouji.value)){
+			alert("请输入手机号");
+		}else{
+			alert("请输入正确的手机号");
+		}
+	}
+	
+</script>
